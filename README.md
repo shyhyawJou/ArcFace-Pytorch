@@ -20,6 +20,7 @@ __However, you need to alert few code for training__,
                 x = self.classifier(x)
             else:
                 x = self.classifier(x, label)
+            return x
   ```
 
 - Replace last fully-connected layer of your model with `ArcFace`
