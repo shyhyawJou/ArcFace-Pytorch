@@ -17,10 +17,10 @@ __However, you need to alert few code for training__,
             x = self.conv1(x)
             ...................
             if label is None:
-                x = self.classifier(x)
+                output = self.classifier(x)
             else:
-                x = self.classifier(x, label)
-            return x
+                output = self.classifier(x, label)
+            return output
   ```
 
 - Replace last fully-connected layer of your model with `ArcFace`
