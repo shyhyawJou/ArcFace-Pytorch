@@ -2,10 +2,27 @@
 Inplementation of a kind of loss function - [ArcFace](https://arxiv.org/abs/1801.07698)
 
 # Usage 
-__It is very easy for training and evaluation/inference. 
-Just need to alert few code__  
+__It is very easy for evaluation/inference.__  
+__However, you need to alert few code for training__, 
 
-- Replace last fully-connected layer with `ArcFace`
+- add `label` argument to model's forward function
+  ```
+  class Your_Model(nn.Module):
+        def __init__(self):
+            self.conv1 = nn.Conv2d(...)
+            ..............
+            self.classifier = nn.Linear(...)
+        
+        def forward(self, x, label=None):
+            x = self.conv1(x)
+            ...................
+            if label is None:
+                x = self.classifier(x)
+            else:
+                x = self.classifier(x, label)
+  ```
+
+- Replace last fully-connected layer of your model with `ArcFace`
 ```
 from loss import ArcFace
 from torchvision import models
@@ -27,3 +44,6 @@ for img, label in torch_dataloader:
 ```
     output = model(img)
 ```
+
+# Note
+If your training is hard to converge, you can set m to smaller.
