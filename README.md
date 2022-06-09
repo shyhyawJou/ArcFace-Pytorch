@@ -48,5 +48,5 @@ for img, label in torch_dataloader:
 ```
 
 # Note
-1. In the original paper, s = 64, but i found s = 32 is easier to converge, so i set s = 32 by default.  
-2. If your training is hard to converge, you can set m to smaller.
+- In the original paper, s = 64, but i found s = 32 is easier to converge, so i set s = 32 by default.  
+- If your training is hard to converge, you can set m to smaller.
