@@ -23,7 +23,8 @@ __However, you need to alert few code for training__,
             return output
   ```
 
-- Replace last fully-connected layer of your model with `ArcFace`
+- Replace last fully-connected layer of your model with `ArcFace`  
+  Take ResNet18 for example.
 ```
 from loss import ArcFace
 from torchvision import models
