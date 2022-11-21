@@ -31,7 +31,7 @@ num_ftrs = model_ft.fc.in_features
 model_ft.fc = ArcFace(num_ftrs, num_classes, m=0.5)
 ```
 2. in the training loop, add `label` as model's input argument  
-   (Generally, loss_func is `nn.CrossEntropyLoss()`)
+   Generally, loss_func is `nn.CrossEntropyLoss()`
 ```
 for img, label in torch_dataloader:
     output = model(img, label)
