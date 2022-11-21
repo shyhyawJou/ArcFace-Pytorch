@@ -1,5 +1,5 @@
 # Overview
-Inplementation of a kind of loss function - [ArcFace](https://arxiv.org/abs/1801.07698)
+[ArcFace](https://arxiv.org/abs/1801.07698)
 
 # Usage  
 You need to alert your model. 
