@@ -49,4 +49,4 @@ Don't need to alert anything
 # Note
 - If your training is hard to converge, you can set `m` to smaller(close to zero).
 - If your dataset is difficult, i recommend you to set `m` to smaller.
-- Acface's argument `s` is 64 in the original paper, but when `s` become bigger the loss is enlarged. So I set `s` to 8 by default.
+- Acface's argument `s` is 64 in the original paper, but when `s` become bigger the gradient is enlarged. So I set `s` to 8 by default.
