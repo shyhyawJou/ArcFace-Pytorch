@@ -48,4 +48,4 @@ Don't need to alert anything
 
 # Note
 - If your training is hard to converge, you can set m to smaller(close to zero).
-- Acface's argument `s` is 64 in the original paper, but when s become bigger the loss is enlarged. So I set s to 1 by default.
+- Acface's argument `s` is 64 in the original paper, but when `s` become bigger the loss is enlarged. So I set `s` to 1 by default.
