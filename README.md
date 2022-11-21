@@ -43,4 +43,4 @@ for img, label in torch_dataloader:
 Don't need to alert anything
 
 # Note
-- If your training is hard to converge, you can set m to smaller.
+- If your training is hard to converge, you can set m to smaller(close to zero).
