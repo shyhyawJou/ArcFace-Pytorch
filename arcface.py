@@ -5,9 +5,8 @@ from torch import linalg
 
 
 
-
 class ArcFace(nn.Module):
-    def __init__(self, cin, cout, s=None, m=0.5):
+    def __init__(self, cin, cout, s=1, m=0.5):
         super().__init__()
         self.s = s
         self.sin_m = torch.sin(torch.tensor(m))
@@ -18,16 +17,14 @@ class ArcFace(nn.Module):
     def forward(self, x, label=None):
         w_L2 = linalg.norm(self.fc.weight.detach(), dim=1, keepdim=True).T
         x_L2 = linalg.norm(x, dim=1, keepdim=True)
-        cos = self.fc(x)
+        cos = self.fc(x) / (x_L2 * w_L2)
 
         if label is not None:
             sin_m, cos_m = self.sin_m, self.cos_m
             one_hot = F.one_hot(label, num_classes=self.cout)
-            cos = cos / (x_L2 * w_L2)
             sin = (1 - cos ** 2) ** 0.5
             angle_sum = cos * cos_m - sin * sin_m
             cos = angle_sum * one_hot + cos * (1 - one_hot)
-            cos = cos * (x_L2 * w_L2 if self.s is None else self.s)
+            cos = cos * self.s
                         
         return cos
-
