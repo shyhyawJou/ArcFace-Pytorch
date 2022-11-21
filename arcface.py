@@ -6,7 +6,7 @@ from torch import linalg
 
 
 class ArcFace(nn.Module):
-    def __init__(self, cin, cout, s=1, m=0.5):
+    def __init__(self, cin, cout, s=8, m=0.5):
         super().__init__()
         self.s = s
         self.sin_m = torch.sin(torch.tensor(m))
