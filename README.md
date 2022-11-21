@@ -24,7 +24,7 @@ You need to alert your model.
 1. Replace last fully-connected layer of your model with `ArcFace`  
    Take ResNet18 for example:
 ```
-from loss import ArcFace
+from arcface import ArcFace
 from torchvision import models
 
 model_ft = models.resnet18(pretrained=True)
